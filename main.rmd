@@ -1,0 +1,17 @@
+
+
+```{r}
+setwd("ALL CSV FILEs")
+data=read.csv("Hotel Reservations.csv",stringsAsFactors = T)
+```
+
+
+```{r}
+dim(data)
+sum(is.na(data))
+```
+
+```{r}
+summary(data)
+```
+
