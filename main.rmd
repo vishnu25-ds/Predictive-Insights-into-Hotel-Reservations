@@ -15,3 +15,21 @@ sum(is.na(data))
 summary(data)
 ```
 
+
+```{r}
+hist(data$required_car_parking_space,col = c("yellowgreen", "yellow"))
+hist(data$arrival_year,col = c("skyblue", "pink"))
+hist(data$arrival_date, col = c("skyblue",  "pink"))
+
+hist(data$no_of_previous_cancellations, col = c("skyblue",  "red"))
+hist(data$no_of_previous_bookings_not_canceled, col = c("skyblue",  "red"))
+hist(data$repeated_guest, col = c("yellowgreen",  "skyblue"))
+```
+
+
+
+```{r}
+data1=data[,-c(1,7,10,12,14,15,16)]
+head(data1)
+```
+
