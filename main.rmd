@@ -33,3 +33,29 @@ data1=data[,-c(1,7,10,12,14,15,16)]
 head(data1)
 ```
 
+
+```{r}
+month_name= c("Jan","Feb","Mar","Apr","May", "June","July","Aug","Sep","Oct","Nov","Dec")
+data1$arrival_month=factor(data1$arrival_month,levels = 1:12,labels = month_name)
+summary(data1)
+```
+
+
+```{r}
+library(ggplot2)
+library(gridExtra)
+```
+
+
+
+```{r}
+countplot <- ggplot(data1, aes(x = no_of_adults, fill = booking_status)) +
+  geom_bar(position="dodge") +
+  labs(x = "", y = "", fill = "Booking Status") +
+  geom_text(stat='count', aes(label=after_stat(count)),position=position_dodge(width = 0.85), vjust=-0.2) +
+  theme(legend.position = c(0.98, 0.98),
+        legend.justification = c(1, 1))
+grid.arrange(countplot, ncol = 2, widths = c(2, 1),top="Distribution of adults by Cancellation Status")
+
+```
+
