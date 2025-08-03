@@ -1,53 +1,61 @@
 
-
+# Set the working directory and load the dataset
 ```{r}
 setwd("ALL CSV FILEs")
 data=read.csv("Hotel Reservations.csv",stringsAsFactors = T)
 ```
 
+# Display dimensions and check for missing values
 
 ```{r}
 dim(data)
 sum(is.na(data))
 ```
-
+# Summarize the dataset
 ```{r}
 summary(data)
 ```
 
 
+# Display structure of the dataset
+```{r}
+str(data)
+```
+
+
+
+# Create histograms for selected variables
 ```{r}
 hist(data$required_car_parking_space,col = c("yellowgreen", "yellow"))
 hist(data$arrival_year,col = c("skyblue", "pink"))
 hist(data$arrival_date, col = c("skyblue",  "pink"))
-
 hist(data$no_of_previous_cancellations, col = c("skyblue",  "red"))
 hist(data$no_of_previous_bookings_not_canceled, col = c("skyblue",  "red"))
 hist(data$repeated_guest, col = c("yellowgreen",  "skyblue"))
 ```
 
 
-
+# Remove unnecessary columns
 ```{r}
 data1=data[,-c(1,7,10,12,14,15,16)]
 head(data1)
 ```
 
-
+# Convert arrival month to factor and summarize
 ```{r}
 month_name= c("Jan","Feb","Mar","Apr","May", "June","July","Aug","Sep","Oct","Nov","Dec")
 data1$arrival_month=factor(data1$arrival_month,levels = 1:12,labels = month_name)
 summary(data1)
 ```
 
-
+# Create plots using ggplot2 and gridExtra
 ```{r}
 library(ggplot2)
 library(gridExtra)
 ```
 
 
-
+# Plot distribution of adults by cancellation status
 ```{r}
 countplot <- ggplot(data1, aes(x = no_of_adults, fill = booking_status)) +
   geom_bar(position="dodge") +
@@ -60,20 +68,12 @@ grid.arrange(countplot, ncol = 2, widths = c(2, 1),top="Distribution of adults b
 
 
 ```{r}
+# Calculate frequency of bookings for each number of children
 child_fre=table(data1$no_of_children)
+# Create a bar plot for the distribution of bookings based on the number of children
 text(x=barplot(child_fre,col=rainbow(length(child_fre)),xlab = " No of Children",ylab="No of bookings"),y=child_fre,label=child_fre,pos = 3, cex = 0.8)
+# Title for the chart
 title(main="Distribution of Number of Children ")
-
-
-```
-
-
-
-```{r}
-wknd_fre=table(data1$no_of_weekend_nights)
-text(x=barplot(wknd_fre,col=rainbow(length(wknd_fre)),xlab = " No of Weekend Nights",ylab="No of bookings"),y=wknd_fre,label=wknd_fre,pos = 3, cex = 0.8)
-title(main = "Distribution of Weekend nights")
-
 ```
 
 
@@ -81,11 +81,33 @@ title(main = "Distribution of Weekend nights")
 
 
 
+
+# Calculate frequency of bookings for each number of weekend nights
 ```{r}
-w_fre=table(data1$no_of_week_nights)
-text(x=barplot(w_fre,col=rainbow(length(w_fre)),xlab = " No of Week Nights",ylab="No of bookings"),y=w_fre,label=w_fre,pos = 3, cex = 0.5)
+wknd_fre = table(data1$no_of_weekend_nights)
+```
+# Create a bar plot for the distribution of bookings based on the number of weekend nights
+```{r}
+text(x = barplot(wknd_fre, col = rainbow(length(wknd_fre)), xlab = "No of Weekend Nights", ylab = "No of bookings"), 
+     y = wknd_fre, label = wknd_fre, pos = 3, cex = 0.8)
+```
+# Title for the chart
+```{r}
+title(main = "Distribution of Weekend Nights")
+```
+
+
+
+
+# Calculate frequency of bookings for each number of week nights
+w_fre = table(data1$no_of_week_nights)
+
+# Create a bar plot for the distribution of bookings based on the number of week nights
+text(x = barplot(w_fre, col = rainbow(length(w_fre)), xlab = "No of Week Nights", ylab = "No of bookings"), 
+     y = w_fre, label = w_fre, pos = 3, cex = 0.5)
+
+# Title for the chart
 title(main = "Distribution of Week Nights")
-```
 
 
 
