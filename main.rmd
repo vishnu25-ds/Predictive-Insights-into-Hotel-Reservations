@@ -56,6 +56,39 @@ countplot <- ggplot(data1, aes(x = no_of_adults, fill = booking_status)) +
   theme(legend.position = c(0.98, 0.98),
         legend.justification = c(1, 1))
 grid.arrange(countplot, ncol = 2, widths = c(2, 1),top="Distribution of adults by Cancellation Status")
+```
+
+
+```{r}
+child_fre=table(data1$no_of_children)
+text(x=barplot(child_fre,col=rainbow(length(child_fre)),xlab = " No of Children",ylab="No of bookings"),y=child_fre,label=child_fre,pos = 3, cex = 0.8)
+title(main="Distribution of Number of Children ")
+
 
 ```
+
+
+
+```{r}
+wknd_fre=table(data1$no_of_weekend_nights)
+text(x=barplot(wknd_fre,col=rainbow(length(wknd_fre)),xlab = " No of Weekend Nights",ylab="No of bookings"),y=wknd_fre,label=wknd_fre,pos = 3, cex = 0.8)
+title(main = "Distribution of Weekend nights")
+
+```
+
+
+
+
+
+
+```{r}
+w_fre=table(data1$no_of_week_nights)
+text(x=barplot(w_fre,col=rainbow(length(w_fre)),xlab = " No of Week Nights",ylab="No of bookings"),y=w_fre,label=w_fre,pos = 3, cex = 0.5)
+title(main = "Distribution of Week Nights")
+```
+
+
+
+
+
 
