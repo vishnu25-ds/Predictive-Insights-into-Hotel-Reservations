@@ -100,17 +100,63 @@ title(main = "Distribution of Weekend Nights")
 
 
 # Calculate frequency of bookings for each number of week nights
+```{r}
 w_fre = table(data1$no_of_week_nights)
-
+```
 # Create a bar plot for the distribution of bookings based on the number of week nights
+```{r}
 text(x = barplot(w_fre, col = rainbow(length(w_fre)), xlab = "No of Week Nights", ylab = "No of bookings"), 
      y = w_fre, label = w_fre, pos = 3, cex = 0.5)
-
+```
 # Title for the chart
+```{r}
 title(main = "Distribution of Week Nights")
+```
 
+# Create a bar plot for the distribution of the type of meal plan by cancellation status
+```{r}
+countplot <- ggplot(data1, aes(x = type_of_meal_plan, fill = booking_status)) +
+  geom_bar(position = "dodge") +  # Use dodge position to place bars side by side
+  labs(x = "", y = "", fill = "Booking Status") +
+  geom_text(stat = 'count', aes(label = after_stat(count)), position = position_dodge(width = 0.85), vjust = -0.2) +  # Add count labels
+  theme(legend.position = c(0.98, 0.98), legend.justification = c(1, 1))  # Position legend
+grid.arrange(countplot, ncol = 2, widths = c(2, 1), top = "Distribution of type of Meal Plan by Cancellation Status")
+```
 
+# Calculate frequency of each type of meal plan
+```{r}
+meal_fre = table(data1$type_of_meal_plan)
+```
+# Create a bar plot for the distribution of bookings based on the type of meal plan
+```{r}
+text(x = barplot(meal_fre, col = rainbow(length(meal_fre)), xlab = "Type of Meal Plan", ylab = "No of bookings"), 
+     y = meal_fre, label = meal_fre, pos = 3, cex = 0.8)
+```
+# Title for the chart
+```{r}
+title(main = "Distribution for Type of Meal Plan")
+```
 
+# Create a bar plot for the distribution of room types reserved by cancellation status
+```{r}
+countplot <- ggplot(data1, aes(x = room_type_reserved, fill = booking_status)) +
+  geom_bar(position = "dodge") +  # Use dodge position to place bars side by side
+  labs(x = " ", y = "", fill = "Booking Status") +
+  geom_text(stat = 'count', aes(label = after_stat(count)), position = position_dodge(width = 0.85), vjust = -0.2) +  # Add count labels
+  theme(legend.position = c(0.98, 0.98), legend.justification = c(1, 1))  # Position legend
+grid.arrange(countplot, ncol = 2, widths = c(2, 1), top = "Distribution of Room Type by Cancellation Status")
+```
 
-
-
+# Calculate frequency of each room type reserved
+```{r}
+room_fre = table(data1$room_type_reserved)
+```
+# Create a bar plot for the distribution of bookings based on room type reserved
+```{r}
+text(x = barplot(room_fre, col = rainbow(length(room_fre)), las = 2), 
+     y = room_fre, label = room_fre, pos = 3, cex = 1)
+```
+# Title for the chart
+```{r}
+title(main = "Distribution of Room Type Reserved")
+```
