@@ -213,3 +213,4 @@ title(main = "Distribution of Market Segment Type")
 ```{r}
 # Create a histogram to visualize the distribution of average price per room
 hist(data1$avg_price_per_room, col = c("yellowgreen", "skyblue"))
+```
