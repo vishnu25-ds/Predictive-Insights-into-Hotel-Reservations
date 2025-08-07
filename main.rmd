@@ -160,3 +160,56 @@ text(x = barplot(room_fre, col = rainbow(length(room_fre)), las = 2),
 ```{r}
 title(main = "Distribution of Room Type Reserved")
 ```
+
+
+```{r}
+# Create a histogram to visualize the distribution of lead time
+hist(data1$lead_time, col = c("yellowgreen", "skyblue"))
+```
+
+```{r}
+# Calculate the frequency of bookings by arrival month
+month_fre = table(data1$arrival_month)
+
+# Create a bar plot for the distribution of bookings based on arrival month
+text(x = barplot(month_fre, col = rainbow(length(month_fre)), xlab = "Arrival Month", ylab = "No of bookings"), 
+     y = month_fre, label = month_fre, pos = 1, cex = 0.5)
+
+# Title for the chart
+title(main = "Distribution of Arrival Month")
+```
+
+
+
+
+```{r}
+# Create a bar plot for the distribution of market segment type by booking status
+countplot <- ggplot(data1, aes(x = market_segment_type, fill = booking_status)) +
+  geom_bar(position = "dodge") +  # Use dodge position to place bars side by side
+  labs(x = "", y = "", fill = "Booking Status") +
+  geom_text(stat = 'count', aes(label = after_stat(count)), position = position_dodge(width = 0.85), vjust = -0.2) +  # Add count labels
+  theme(legend.position = c(0.4, 0.98), legend.justification = c(1, 1))  # Position legend
+grid.arrange(countplot, ncol = 2, widths = c(2, 1), top = "Distribution of Market Segment Type by Cancellation Status")
+```
+
+
+
+
+```{r}
+# Calculate frequency of each market segment type
+mark_fre = table(data1$market_segment_type)
+
+# Create a bar plot for the distribution of bookings based on market segment type
+text(x = barplot(mark_fre, col = rainbow(length(mark_fre)), xlab = "Market Segment Type", ylab = "No of bookings"), 
+     y = mark_fre, label = mark_fre, pos = 3, cex = 0.8)
+
+# Title for the chart
+title(main = "Distribution of Market Segment Type")
+```
+
+
+
+
+```{r}
+# Create a histogram to visualize the distribution of average price per room
+hist(data1$avg_price_per_room, col = c("yellowgreen", "skyblue"))
