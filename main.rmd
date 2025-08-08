@@ -214,3 +214,59 @@ title(main = "Distribution of Market Segment Type")
 # Create a histogram to visualize the distribution of average price per room
 hist(data1$avg_price_per_room, col = c("yellowgreen", "skyblue"))
 ```
+
+
+```{r}
+# Create a bar plot for the distribution of special requests by booking status
+countplot <- ggplot(data1, aes(x = no_of_special_requests, fill = booking_status)) +
+  geom_bar(position = "dodge") +  # Use dodge position to place bars side by side
+  labs(x = "", y = "", fill = "Booking Status") +
+  geom_text(stat = 'count', aes(label = after_stat(count)), position = position_dodge(width = 0.85), vjust = -0.2) +  # Add count labels
+  theme(legend.position = c(0.98, 0.98), legend.justification = c(1, 1))  # Position legend
+grid.arrange(countplot, ncol = 2, widths = c(2, 1), top = "Distribution of Number of Special Requests by Cancellation Status")
+```
+
+
+```{r}
+# Calculate the frequency of special requests
+rq_fre = table(data1$no_of_special_requests)
+
+# Create a bar plot for the distribution of bookings based on the number of special requests
+text(x = barplot(rq_fre, col = rainbow(length(rq_fre)), xlab = "Number of Special Requests", ylab = "No of bookings"), 
+     y = rq_fre, label = rq_fre, pos = 3, cex = 1)
+
+# Title for the chart
+title(main = "Distribution of Special Requests")
+```
+
+
+```{r}
+# Calculate frequency of each booking status (canceled or not)
+st_fre = table(data1$booking_status)
+
+# Create a bar plot for the distribution of bookings based on booking status
+text(x = barplot(st_fre, col = c("pink", "yellowgreen"), xlab = "Cancelled Status", ylab = "No of bookings"), 
+     y = st_fre, label = st_fre, pos = 1, cex = 1)
+
+# Title for the chart
+title(main = "Distribution of Booking Status")
+```
+
+
+```{r}
+# Create a boxplot to compare lead time by booking status
+boxplot(data1$lead_time ~ data1$booking_status, col = c("skyblue", "yellowgreen"))
+```
+
+
+
+```{r}
+# Create a boxplot to compare arrival month by booking status
+boxplot(data1$arrival_month ~ data1$booking_status, col = c("pink", "lightskyblue"))
+```
+
+
+```{r}
+# Create a boxplot to compare the number of special requests by booking status
+boxplot(data1$no_of_special_requests ~ data1$booking_status, col = c("pink", "green4"))
+```
