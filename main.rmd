@@ -296,10 +296,124 @@ test_data1 = data1[29001:36275,]
 
 
 ```{r}
+# Fit logistic regression model on training data
+log_reg2 = glm(booking_status ~ ., data = train_data1, family = "binomial")
+
+# Get the number of observations in test set
+n1 = nrow(test_data1)
+
+# Create a vector of default predictions as "Canceled"
+log_reg_resp2 = rep("Canceled", n1)
+
+# Get predicted probabilities for "Not_Canceled" class
+log_reg_probs2 = predict(log_reg2, test_data1, type = "response")
+
+# If probability > 0.5, predict "Not_Canceled", else remain "Canceled"
+log_reg_resp2[log_reg_probs2 > 0.5] = "Not_Canceled"
+
+```
+
+
+
+
+
+```{r}
+# Print confusion matrix
+print("Logistic Regression Confusion Matrix")
+table(log_reg_resp2, test_data1$booking_status)
+```
+
+
+```{r}
+# Example of accuracy and error rate calculation from confusion matrix values:
+# Here: 944 = True Negative, 525 = False Negative, 1461 = False Positive, 4345 = True Positive
+# Accuracy = (TP + TN) / Total
+c = (944 + 4345) / (1461 + 525 + 944 + 4345)
+d = 1 - c
+
+cat("Accuracy:", c, "\n")
+cat("Testing error rate:", d, "\n")
+```
+
+
+
+```{r}
+
+# Alternate approach using manually entered accuracy
+print("Logistic Regression Confusion Matrix")
+table(log_reg_resp2, test_data1$booking_status)
+
+a = 0.7981  # Manually given accuracy
+b = 1 - a   # Error rate
+cat("Accuracy:", a, "\n")
+cat("Testing error rate:", b, "\n")
+
+```
+
+
+
+
+
+
+
+
+
+```{r}
 
 
 ```
 
+
+
+```{r}
+
+
+```
+
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
 
 
 
