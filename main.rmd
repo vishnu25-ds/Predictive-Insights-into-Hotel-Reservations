@@ -310,7 +310,6 @@ log_reg_probs2 = predict(log_reg2, test_data1, type = "response")
 
 # If probability > 0.5, predict "Not_Canceled", else remain "Canceled"
 log_reg_resp2[log_reg_probs2 > 0.5] = "Not_Canceled"
-
 ```
 
 
@@ -338,7 +337,6 @@ cat("Testing error rate:", d, "\n")
 
 
 ```{r}
-
 # Alternate approach using manually entered accuracy
 print("Logistic Regression Confusion Matrix")
 table(log_reg_resp2, test_data1$booking_status)
@@ -347,7 +345,6 @@ a = 0.7981  # Manually given accuracy
 b = 1 - a   # Error rate
 cat("Accuracy:", a, "\n")
 cat("Testing error rate:", b, "\n")
-
 ```
 
 
