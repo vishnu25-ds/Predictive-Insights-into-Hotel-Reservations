@@ -294,7 +294,7 @@ test_data1 = data1[29001:36275,]
 ```
 
 
-
+# logistic regression model
 ```{r}
 # Fit logistic regression model on training data
 log_reg2 = glm(booking_status ~ ., data = train_data1, family = "binomial")
@@ -314,17 +314,15 @@ log_reg_resp2[log_reg_probs2 > 0.5] = "Not_Canceled"
 
 
 
-
-
 ```{r}
 # Print confusion matrix
 print("Logistic Regression Confusion Matrix")
 table(log_reg_resp2, test_data1$booking_status)
 ```
 
-
-```{r}
 # Example of accuracy and error rate calculation from confusion matrix values:
+```{r}
+
 # Here: 944 = True Negative, 525 = False Negative, 1461 = False Positive, 4345 = True Positive
 # Accuracy = (TP + TN) / Total
 c = (944 + 4345) / (1461 + 525 + 944 + 4345)
@@ -354,7 +352,7 @@ cat("Testing error rate:", b, "\n")
 
 
 
-
+# Linear Discriminant Analysis (LDA)
 ```{r}
 # Load MASS library for Linear Discriminant Analysis (LDA)
 library(MASS)
@@ -376,9 +374,9 @@ cat("Testing error rate:", test_error_lda1, "\n")
 ```
 
 
-
-```{r}
 # --------- LDA with 0.3 threshold ---------
+```{r}
+
 # Initialize all predictions to "Not_Canceled"
 n = nrow(test_data1)
 lda_thr = rep("Not_Canceled", n)
@@ -399,10 +397,9 @@ cat("Testing error rate:", 1 - mean(lda_thr == test_data1$booking_status), "\n")
 
 
 
-
+# --------- LDA with 0.4 threshold ---------
 ```{r}
 
-# --------- LDA with 0.4 threshold ---------
 # Initialize all predictions to "Not_Canceled"
 lda_thr1 = rep("Not_Canceled", n)
 
