@@ -356,14 +356,44 @@ cat("Testing error rate:", b, "\n")
 
 
 ```{r}
+# Load MASS library for Linear Discriminant Analysis (LDA)
+library(MASS)
 
+# Train LDA model using training data
+lda_model1 = lda(booking_status ~ ., data = train_data1)
 
+# Predict booking_status on the test data
+lda_preds1 = predict(lda_model1, test_data1)
+
+# Print confusion matrix for LDA with default threshold (0.5)
+print("LDA Confusion Matrix")
+table(lda_preds1$class, test_data1$booking_status)
+
+# Calculate testing error and accuracy for default LDA predictions
+test_error_lda1 <- mean(lda_preds1$class != test_data1$booking_status)
+cat("Accuracy:", 1 - test_error_lda1, "\n")
+cat("Testing error rate:", test_error_lda1, "\n")
 ```
 
 
 
 ```{r}
+# --------- LDA with 0.3 threshold ---------
+# Initialize all predictions to "Not_Canceled"
+n = nrow(test_data1)
+lda_thr = rep("Not_Canceled", n)
 
+# Change prediction to "Canceled" if posterior probability > 0.3
+thr_index = lda_preds1$posterior[,"Canceled"] > 0.3
+lda_thr[thr_index] = "Canceled"
+
+# Print confusion matrix for LDA with 0.3 threshold
+print("LDA with 0.3 Confusion Matrix")
+table(lda_thr, test_data1$booking_status)
+
+# Calculate accuracy and testing error rate
+cat("Accuracy:", mean(lda_thr == test_data1$booking_status), "\n")
+cat("Testing error rate:", 1 - mean(lda_thr == test_data1$booking_status), "\n")
 
 ```
 
@@ -372,6 +402,21 @@ cat("Testing error rate:", b, "\n")
 
 ```{r}
 
+# --------- LDA with 0.4 threshold ---------
+# Initialize all predictions to "Not_Canceled"
+lda_thr1 = rep("Not_Canceled", n)
+
+# Change prediction to "Canceled" if posterior probability > 0.4
+thr_index1 = lda_preds1$posterior[,"Canceled"] > 0.4
+lda_thr1[thr_index1] = "Canceled"
+
+# Print confusion matrix for LDA with 0.4 threshold
+print("LDA with 0.4 Confusion Matrix")
+table(lda_thr1, test_data1$booking_status)
+
+# Calculate accuracy and testing error rate
+cat("Accuracy:", mean(lda_thr1 == test_data1$booking_status), "\n")
+cat("Testing error rate:", 1 - mean(lda_thr1 == test_data1$booking_status), "\n")
 
 ```
 
