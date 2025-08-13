@@ -1,4 +1,4 @@
-Predictive Insights into Hotel Reservations
+# Predictive Insights into Hotel Reservations
 📌 Overview
 This project uses statistical analysis and machine learning techniques to predict hotel booking cancellations.
 By understanding customer behavior, booking patterns, and cancellation trends, the model can help hotel management:
@@ -8,14 +8,14 @@ By understanding customer behavior, booking patterns, and cancellation trends, t
 •	Enhance guest satisfaction
 The analysis covers Exploratory Data Analysis (EDA), data preprocessing, model building, evaluation, and interpretation.
 ________________________________________
-🎯 Problem Statement
+# 🎯 Problem Statement
 Hotels face significant operational and financial challenges from reservation cancellations.
 The key questions addressed in this project are:
 1.	Which factors influence booking cancellations the most?
 2.	Can we accurately predict if a booking will be canceled?
 3.	Which model balances accuracy and business priorities (precision vs. recall) best?
 ________________________________________
-Workflow
+# Workflow
 1.	Data Loading & Inspection
 	-Imported CSV file into R
 	-Checked dimensions, missing values, structure, and summary statistics
@@ -38,7 +38,8 @@ Workflow
 	-Confusion matrices
 	-Accuracy and testing error rate calculation
 	-Comparison of models and threshold adjustments for LDA
-📊 Libraries Used & Purpose
+
+# 📊 Libraries Used & Purpose
 Data Manipulation
 •	base R: Reading CSV, indexing, subsetting, basic data operations
 Visualization
@@ -60,7 +61,7 @@ Statistical & Machine Learning
 	-glm() for logistic regression
 ________________________________________
 
-📂 Dataset
+# 📂 Dataset
 •	Source: Kaggle - Hotel Reservations Classification Dataset
 •	Observations: 36,275
 •	Features: 19 columns (11 used after preprocessing)
@@ -88,7 +89,7 @@ Dropped Features & Rationale
 •	No of previous cancellations — not representative for most customers
 •	No of previous bookings not canceled — similar to above
 ________________________________________
-🛠 Data Preprocessing
+# 🛠 Data Preprocessing
 •	Checked for missing values — none found
 •	Converted arrival_month numeric (1–12) → categorical (Jan–Dec)
 •	Removed irrelevant columns
@@ -97,7 +98,7 @@ ________________________________________
 	-Test set: 7,275 observations (~20%)
 •	Scaled numeric predictors for KNN to ensure fair distance calculations
 ________________________________________
-📊 Exploratory Data Analysis (EDA)
+# 📊 Exploratory Data Analysis (EDA)
 Key Insights
 •	Seasonality: Aug–Oct had the highest bookings.
 •	Room Preferences: Room Type 1 dominated reservations.
@@ -111,7 +112,7 @@ Example EDA Visualizations
 •	Barplots for categorical variables (room type, market segment)
 •	Boxplots comparing numerical predictors across booking status
 ________________________________________
-🤖 Modeling Approach
+# 🤖 Modeling Approach
 Four models were tested, plus variations in LDA decision thresholds:
 Model	                                   Description
 Logistic Regression	                       Linear classifier using log-odds transformation
@@ -120,7 +121,7 @@ Naive Bayes	                               Probabilistic model assuming feature 
 K-Nearest Neighbors (KNN)	               Classifies based on nearest neighbors in feature space
 
 ________________________________________
-📈 Model Results
+# 📈 Model Results
 Model	       Accuracy	Precision	Recall	F1-Score
 Logistic Reg.	79.81%	73.56%	    60.75%	66.55%
 LDA	            79.08%	73.27%	    57.80%	64.62%
@@ -129,16 +130,16 @@ LDA (0.4)	    79.22%	69.22%	    66.86%	68.02%
 Naive Bayes	    76.36%	69.19%	    51.35%	58.95%
 KNN (k=7)	    84.65%	79.43%	    72.27%	75.68%
 
-Key Findings
+# Key Findings
 •	KNN performed best overall (Accuracy 84.65%).
 •	LDA (0.3) gave the best recall (good for catching potential cancellations).
 •	Precision focus → KNN was preferred to reduce false positives.
-Evaluation Criteria
+# Evaluation Criteria
 •	Precision priority: Minimize false positives (predicting “Canceled” when it’s actually “Not_Canceled”).
 •	Recall consideration: Useful if we want to capture as many true cancellations as possible.
 •	Chosen Model: KNN for its superior precision, accuracy, and F1-score.
 ________________________________________
-📦 Libraries Used
+# 📦 Libraries Used
 Data Handling
 •	base R — Data loading, transformation, subsetting
 Visualization
@@ -152,7 +153,7 @@ Modeling
 •	class — K-Nearest Neighbors (knn())
 
 ________________________________________
-🚀 Future Work
+# 🚀 Future Work
 •	Include external datasets (weather, events, economic indicators)
 •	Extend time coverage beyond 2018 for updated patterns
 •	Explore tree-based and ensemble methods (Random Forest, Gradient Boosting)
@@ -160,7 +161,7 @@ ________________________________________
 •	Tune hyperparameters for Naive Bayes and KNN for potential improvements
 
 ________________________________________
-⚙️ How to Run
+# ⚙️ How to Run
 1.Open the .Rmd file in RStudio
 2.Install required packages (if not installed):
 ```{r}
