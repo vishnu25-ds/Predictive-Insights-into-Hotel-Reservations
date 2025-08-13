@@ -1,7 +1,7 @@
 # Predictive Insights into Hotel Reservations
 ## 📌 Overview
-This project uses statistical analysis and machine learning techniques to predict hotel booking cancellations.
-By understanding customer behavior, booking patterns, and cancellation trends, the model can help hotel management:
+### This project uses statistical analysis and machine learning techniques to predict hotel booking cancellations.
+### By understanding customer behavior, booking patterns, and cancellation trends, the model can help hotel management:
 •	Minimize last-minute cancellations
 •	Optimize revenue forecasting
 •	Improve resource allocation and staffing
