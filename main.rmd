@@ -418,53 +418,86 @@ cat("Testing error rate:", 1 - mean(lda_thr1 == test_data1$booking_status), "\n"
 ```
 
 
-
+# -------- Naive Bayes --------
 ```{r}
+library(e1071)
+
+# Train Naive Bayes model on training data
+naive_model = naiveBayes(booking_status ~ ., data = train_data1)
+
+# Predict booking_status on test data
+naive_preds = predict(naive_model, test_data1)
+
+# Print confusion matrix
+print("Naive Bayes Confusion Matrix")
+table(naive_preds, test_data1$booking_status)
+
+# Calculate accuracy and testing error rate
+cat("Accuracy:", 1 - mean(naive_preds != test_data1$booking_status), "\n")
+cat("Testing error rate:", mean(naive_preds != test_data1$booking_status), "\n")
 
 
 ```
 
 
 
-
+# -------- KNN --------
 ```{r}
 
+library(class)
+
+# Attach data for easier column access
+attach(data1)
+
+# Ensure reproducibility
+set.seed(7)
+
+# Define training row indices
+train_index = 1:29000
+
+# Prepare scaled numeric predictors for training and testing
+trainX = scale(cbind(
+  no_of_adults,
+  no_of_children,
+  no_of_weekend_nights,
+  no_of_week_nights,
+  type_of_meal_plan,
+  room_type_reserved,
+  lead_time,
+  arrival_month,
+  market_segment_type,
+  avg_price_per_room,
+  no_of_special_requests
+))[train_index,]
+
+testX = scale(cbind(
+  no_of_adults,
+  no_of_children,
+  no_of_weekend_nights,
+  no_of_week_nights,
+  type_of_meal_plan,
+  room_type_reserved,
+  lead_time,
+  arrival_month,
+  market_segment_type,
+  avg_price_per_room,
+  no_of_special_requests
+))[-train_index,]
+
+# Define target labels for training and testing
+trainy = data1$booking_status[train_index]
+testy = data1$booking_status[-train_index]
+
+# Run KNN with k = 7
+knn_model_preds = knn(trainX, testX, trainy, k = 7)
+
+# Print confusion matrix for KNN predictions
+print("KNN Confusion Matrix")
+table(knn_model_preds, testy)
+
+# Calculate accuracy and testing error rate for KNN
+cat("Accuracy:", 1 - mean(knn_model_preds != testy), "\n")
+cat("Testing error rate:", mean(knn_model_preds != testy), "\n")
 
 ```
 
-
-
-```{r}
-
-
-```
-
-
-
-
-```{r}
-
-
-```
-
-
-
-```{r}
-
-
-```
-
-
-
-
-```{r}
-
-
-```
-
-
-
-```{r}
-
-
-```
