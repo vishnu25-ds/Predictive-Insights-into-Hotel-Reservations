@@ -1,5 +1,5 @@
 # Predictive Insights into Hotel Reservations
-📌 Overview
+## 📌 Overview
 This project uses statistical analysis and machine learning techniques to predict hotel booking cancellations.
 By understanding customer behavior, booking patterns, and cancellation trends, the model can help hotel management:
 •	Minimize last-minute cancellations
@@ -16,25 +16,25 @@ The key questions addressed in this project are:
 3.	Which model balances accuracy and business priorities (precision vs. recall) best?
 ________________________________________
 # Workflow
-1.	Data Loading & Inspection
+## 1.	Data Loading & Inspection
 	-Imported CSV file into R
 	-Checked dimensions, missing values, structure, and summary statistics
-2.	Data Cleaning & Preparation
+## 2.	Data Cleaning & Preparation
 	-Removed irrelevant columns (IDs and redundant attributes)
 	-Converted arrival_month to factor with month names
-3.	Exploratory Data Analysis (EDA)
+## 3.	Exploratory Data Analysis (EDA)
 	-Univariate Analysis: Histograms, frequency tables, and bar plots for individual features
 	-Bivariate Analysis: Relationship between features and booking status
 	-Boxplots: Visualized numeric variables across cancellation status
-4.	Data Splitting
+## 4.	Data Splitting
 	-29,000 rows for training
 	-Remaining rows for testing
-5.	Modeling
+## 5.	Modeling
 	-Logistic Regression (baseline classification model)
 	-Linear Discriminant Analysis (LDA) with different decision thresholds (0.3, 0.4)
 	-Naive Bayes classifier
 	-K-Nearest Neighbors (KNN) with k=7
-6.	Model Evaluation
+## 6.	Model Evaluation
 	-Confusion matrices
 	-Accuracy and testing error rate calculation
 	-Comparison of models and threshold adjustments for LDA
