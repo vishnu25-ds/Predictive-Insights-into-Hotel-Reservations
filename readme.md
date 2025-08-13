@@ -196,15 +196,15 @@ Four models were tested, plus variations in **LDA** decision thresholds:
 
 ________________________________________
 # ⚙️ How to Run
-- 1.Open the .Rmd file in RStudio
-- 2.Install required packages (if not installed):
+- Open the .Rmd file in RStudio
+- Install required packages (if not installed):
 ```{r}
 install.packages(c("ggplot2", "gridExtra", "MASS", "e1071", "class"))
 ```
-- 3.Set your working directory to the location of Hotel Reservations.csv:
+- Set your working directory to the location of Hotel Reservations.csv:
 ```{r}
 setwd("path/to/your/folder")
 ```
-- 4.Knit the file to HTML or PDF to view the report
+- Knit the file to HTML or PDF to view the report
 
 
