@@ -64,34 +64,37 @@ ________________________________________
 ### 	stats:
 	-glm() for logistic regression
 ________________________________________
+## 📂 Dataset
 
-# 📂 Dataset
-•	Source: Kaggle - Hotel Reservations Classification Dataset
-•	Observations: 36,275
-•	Features: 19 columns (11 used after preprocessing)
-•	Response Variable: booking_status
-	-"Canceled"
-	-"Not_Canceled"
-Predictors Used
-•	no_of_adults
-•	no_of_children
-•	no_of_weekend_nights
-•	no_of_week_nights
-•	type_of_meal_plan (categorical)
-•	room_type_reserved (categorical)
-•	lead_time
-•	arrival_month (categorical)
-•	market_segment_type (categorical)
-•	avg_price_per_room
-•	no_of_special_requests
-Dropped Features & Rationale
-•	Booking ID — unique identifier, no predictive power
-•	Required car parking space — low variance, weak correlation
-•	Arrival year — single/few values
-•	Arrival date — redundant with arrival month
-•	Repeated guest — imbalance in distribution
-•	No of previous cancellations — not representative for most customers
-•	No of previous bookings not canceled — similar to above
+- **Source**: [Kaggle - Hotel Reservations Classification Dataset](https://www.kaggle.com/datasets/ahsan81/hotel-reservations-classification-dataset)  
+- **Observations**: 36,275  
+- **Features**: 19 columns (**11 used** after preprocessing)  
+- **Response Variable**: `booking_status`  
+  - `"Canceled"`  
+  - `"Not_Canceled"`  
+
+### 🏷 Predictors Used
+- `no_of_adults`  
+- `no_of_children`  
+- `no_of_weekend_nights`  
+- `no_of_week_nights`  
+- `type_of_meal_plan` *(categorical)*  
+- `room_type_reserved` *(categorical)*  
+- `lead_time`  
+- `arrival_month` *(categorical)*  
+- `market_segment_type` *(categorical)*  
+- `avg_price_per_room`  
+- `no_of_special_requests`  
+
+### 🗑 Dropped Features & Rationale
+- **Booking ID** — Unique identifier, no predictive power  
+- **Required car parking space** — Low variance, weak correlation  
+- **Arrival year** — Single/few values only  
+- **Arrival date** — Redundant with arrival month  
+- **Repeated guest** — Strong imbalance in distribution  
+- **No of previous cancellations** — Not representative for most customers  
+- **No of previous bookings not canceled** — Similar to above  
+
 ________________________________________
 # 🛠 Data Preprocessing
 •	Checked for missing values — none found
