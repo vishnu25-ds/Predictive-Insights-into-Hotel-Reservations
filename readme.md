@@ -43,26 +43,30 @@ ________________________________________
 	-Accuracy and testing error rate calculation
 	-Comparison of models and threshold adjustments for LDA
 
-# 📊 Libraries Used & Purpose
-## Data Manipulation
-	base R: Reading CSV, indexing, subsetting, basic data operations
-## Visualization
-### 	ggplot2:
-	-Created bar charts with counts and grouped booking status
-	-Custom legends, labels, and aesthetics
-### 	gridExtra:
-	-Arranged multiple ggplot2 plots in grid layouts
-### 	base plotting functions:
-	-Histograms, barplots, boxplots with labeled counts and color customization
-## Statistical & Machine Learning
-### 	MASS:
-	-lda() function for Linear Discriminant Analysis
-### 	e1071:
-	-naiveBayes() for Naive Bayes classification
-### 	class:
-	-knn() for K-Nearest Neighbors classification
-### 	stats:
-	-glm() for logistic regression
+## 📊 Libraries Used & Purpose
+
+### 🗄 Data Manipulation
+- **base R** — Reading CSV files, indexing, subsetting, and basic data operations.
+
+### 🎨 Visualization
+- **ggplot2**  
+  - Created bar charts with counts and grouped booking status.  
+  - Customized legends, labels, and aesthetics.  
+- **gridExtra**  
+  - Arranged multiple ggplot2 plots in grid layouts.  
+- **Base plotting functions**  
+  - Created histograms, barplots, and boxplots with labeled counts and custom colors.
+
+### 🤖 Statistical & Machine Learning
+- **MASS**  
+  - `lda()` function for Linear Discriminant Analysis.  
+- **e1071**  
+  - `naiveBayes()` for Naive Bayes classification.  
+- **class**  
+  - `knn()` for K-Nearest Neighbors classification.  
+- **stats**  
+  - `glm()` for Logistic Regression.
+
 ________________________________________
 ## 📂 Dataset
 
