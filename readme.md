@@ -46,18 +46,18 @@ ________________________________________
 ### 	ggplot2:
 	-Created bar charts with counts and grouped booking status
 	-Custom legends, labels, and aesthetics
-•	gridExtra:
+### 	gridExtra:
 	-Arranged multiple ggplot2 plots in grid layouts
-•	base plotting functions:
+### 	base plotting functions:
 	-Histograms, barplots, boxplots with labeled counts and color customization
 ## Statistical & Machine Learning
-•	MASS:
+### 	MASS:
 	-lda() function for Linear Discriminant Analysis
-•	e1071:
+### 	e1071:
 	-naiveBayes() for Naive Bayes classification
-•	class:
+### 	class:
 	-knn() for K-Nearest Neighbors classification
-•	stats:
+### 	stats:
 	-glm() for logistic regression
 ________________________________________
 
