@@ -100,28 +100,34 @@ ________________________________________
 - **No of previous bookings not canceled** — Similar to above  
 
 ________________________________________
-# 🛠 Data Preprocessing
-•	Checked for missing values — none found
-•	Converted arrival_month numeric (1–12) → categorical (Jan–Dec)
-•	Removed irrelevant columns
-•	Split dataset:
-	-Training set: 29,000 observations (~80%)
-	-Test set: 7,275 observations (~20%)
-•	Scaled numeric predictors for KNN to ensure fair distance calculations
-________________________________________
-# 📊 Exploratory Data Analysis (EDA)
-Key Insights
-•	Seasonality: Aug–Oct had the highest bookings.
-•	Room Preferences: Room Type 1 dominated reservations.
-•	Guests: Most bookings had 2 adults, no children.
-•	Special Requests: Bookings with at least 1 special request were more often canceled.
-•	Lead Time: Longer lead times were associated with higher cancellations.
-•	Meal Plans: Meal plan 1 was most common.
-•	Market Segments: Online bookings formed the majority.
-Example EDA Visualizations
-•	Histograms for numeric features (lead time, price, nights)
-•	Barplots for categorical variables (room type, market segment)
-•	Boxplots comparing numerical predictors across booking status
+## 🛠 Data Preprocessing
+
+- Checked for missing values — **none found**  
+- Converted `arrival_month` from numeric (1–12) → categorical (Jan–Dec)  
+- Removed irrelevant columns  
+- Split dataset:  
+  - **Training set**: 29,000 observations (~80%)  
+  - **Test set**: 7,275 observations (~20%)  
+- Scaled numeric predictors for **KNN** to ensure fair distance calculations  
+
+---
+
+## 📊 Exploratory Data Analysis (EDA)
+
+### 🔍 Key Insights
+- **Seasonality**: Aug–Oct had the highest bookings.  
+- **Room Preferences**: Room Type 1 dominated reservations.  
+- **Guests**: Most bookings had 2 adults, no children.  
+- **Special Requests**: Bookings with at least 1 special request were more often canceled.  
+- **Lead Time**: Longer lead times were associated with higher cancellations.  
+- **Meal Plans**: Meal plan 1 was most common.  
+- **Market Segments**: Online bookings formed the majority.  
+
+### 📈 Example EDA Visualizations
+- **Histograms** for numeric features (lead time, price, nights)  
+- **Barplots** for categorical variables (room type, market segment)  
+- **Boxplots** comparing numerical predictors across booking status  
+
 ________________________________________
 # 🤖 Modeling Approach
 Four models were tested, plus variations in LDA decision thresholds:
