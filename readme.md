@@ -40,7 +40,7 @@ ________________________________________
 	-Comparison of models and threshold adjustments for LDA
 
 # 📊 Libraries Used & Purpose
-Data Manipulation
+## Data Manipulation
 •	base R: Reading CSV, indexing, subsetting, basic data operations
 Visualization
 •	ggplot2:
@@ -50,7 +50,7 @@ Visualization
 	-Arranged multiple ggplot2 plots in grid layouts
 •	base plotting functions:
 	-Histograms, barplots, boxplots with labeled counts and color customization
-Statistical & Machine Learning
+## Statistical & Machine Learning
 •	MASS:
 	-lda() function for Linear Discriminant Analysis
 •	e1071:
