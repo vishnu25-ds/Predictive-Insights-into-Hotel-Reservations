@@ -41,8 +41,8 @@ ________________________________________
 
 # 📊 Libraries Used & Purpose
 ## Data Manipulation
-•	base R: Reading CSV, indexing, subsetting, basic data operations
-Visualization
+	base R: Reading CSV, indexing, subsetting, basic data operations
+## Visualization
 •	ggplot2:
 	-Created bar charts with counts and grouped booking status
 	-Custom legends, labels, and aesthetics
