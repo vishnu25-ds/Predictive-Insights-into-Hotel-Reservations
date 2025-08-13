@@ -129,53 +129,70 @@ ________________________________________
 - **Boxplots** comparing numerical predictors across booking status  
 
 ________________________________________
-# 🤖 Modeling Approach
-Four models were tested, plus variations in LDA decision thresholds:
-Model	                                   Description
-Logistic Regression	                       Linear classifier using log-odds transformation
-Linear Discriminant Analysis (LDA)	       Projects data to maximize class separation
-Naive Bayes	                               Probabilistic model assuming feature independence
-K-Nearest Neighbors (KNN)	               Classifies based on nearest neighbors in feature space
+## 🤖 Modeling Approach
+Four models were tested, plus variations in **LDA** decision thresholds:
 
-________________________________________
-# 📈 Model Results
-Model	       Accuracy	Precision	Recall	F1-Score
-Logistic Reg.	79.81%	73.56%	    60.75%	66.55%
-LDA	            79.08%	73.27%	    57.80%	64.62%
-LDA (0.3)	    77.88%	63.82%	    76.42%	69.56%
-LDA (0.4)	    79.22%	69.22%	    66.86%	68.02%
-Naive Bayes	    76.36%	69.19%	    51.35%	58.95%
-KNN (k=7)	    84.65%	79.43%	    72.27%	75.68%
+| Model                              | Description |
+|------------------------------------|-------------|
+| **Logistic Regression**            | Linear classifier using log-odds transformation |
+| **Linear Discriminant Analysis (LDA)** | Projects data to maximize class separation |
+| **Naive Bayes**                     | Probabilistic model assuming feature independence |
+| **K-Nearest Neighbors (KNN)**       | Classifies based on nearest neighbors in feature space |
 
-# Key Findings
-•	KNN performed best overall (Accuracy 84.65%).
-•	LDA (0.3) gave the best recall (good for catching potential cancellations).
-•	Precision focus → KNN was preferred to reduce false positives.
-# Evaluation Criteria
-•	Precision priority: Minimize false positives (predicting “Canceled” when it’s actually “Not_Canceled”).
-•	Recall consideration: Useful if we want to capture as many true cancellations as possible.
-•	Chosen Model: KNN for its superior precision, accuracy, and F1-score.
-________________________________________
-# 📦 Libraries Used
-Data Handling
-•	base R — Data loading, transformation, subsetting
-Visualization
-•	ggplot2 — Advanced bar charts, grouped plots
-•	gridExtra — Plot arrangements
-•	Base plotting (hist(), barplot(), boxplot())
-Modeling
-•	stats — Logistic Regression (glm())
-•	MASS — Linear Discriminant Analysis (lda())
-•	e1071 — Naive Bayes (naiveBayes())
-•	class — K-Nearest Neighbors (knn())
+---
 
-________________________________________
-# 🚀 Future Work
-•	Include external datasets (weather, events, economic indicators)
-•	Extend time coverage beyond 2018 for updated patterns
-•	Explore tree-based and ensemble methods (Random Forest, Gradient Boosting)
-•	Implement cost-sensitive learning to balance FP and FN based on business needs
-•	Tune hyperparameters for Naive Bayes and KNN for potential improvements
+## 📈 Model Results
+
+| Model         | Accuracy | Precision | Recall  | F1-Score |
+|---------------|----------|-----------|---------|----------|
+| Logistic Reg. | 79.81%   | 73.56%    | 60.75%  | 66.55%   |
+| LDA           | 79.08%   | 73.27%    | 57.80%  | 64.62%   |
+| LDA (0.3)     | 77.88%   | 63.82%    | **76.42%** | 69.56%   |
+| LDA (0.4)     | 79.22%   | 69.22%    | 66.86%  | 68.02%   |
+| Naive Bayes   | 76.36%   | 69.19%    | 51.35%  | 58.95%   |
+| **KNN (k=7)** | **84.65%** | **79.43%** | 72.27%  | **75.68%** |
+
+---
+
+### 🔑 Key Findings
+- **KNN** performed best overall (Accuracy **84.65%**).
+- **LDA (0.3)** achieved the best recall (good for catching potential cancellations).
+- Precision focus → **KNN** was preferred to reduce false positives.
+
+---
+
+### 📏 Evaluation Criteria
+- **Precision priority** → Minimize false positives (predicting `"Canceled"` when it’s actually `"Not_Canceled"`).  
+- **Recall consideration** → Useful if we want to capture as many true cancellations as possible.  
+- **Chosen Model** → **KNN** for its superior precision, accuracy, and F1-score.
+
+---
+
+## 📦 Libraries Used
+
+### 📂 Data Handling
+- **base R** — Data loading, transformation, subsetting
+
+### 🎨 Visualization
+- **ggplot2** — Advanced bar charts, grouped plots  
+- **gridExtra** — Plot arrangements  
+- **Base plotting** — `hist()`, `barplot()`, `boxplot()`
+
+### 🤖 Modeling
+- **stats** — Logistic Regression (`glm()`)  
+- **MASS** — Linear Discriminant Analysis (`lda()`)  
+- **e1071** — Naive Bayes (`naiveBayes()`)  
+- **class** — K-Nearest Neighbors (`knn()`)
+
+---
+
+## 🚀 Future Work
+- Include **external datasets** (weather, events, economic indicators)  
+- Extend **time coverage** beyond 2018 for updated patterns  
+- Explore **tree-based** and **ensemble** methods (Random Forest, Gradient Boosting)  
+- Implement **cost-sensitive learning** to balance FP and FN based on business needs  
+- Tune **hyperparameters** for Naive Bayes and KNN for potential improvements  
+
 
 ________________________________________
 # ⚙️ How to Run
